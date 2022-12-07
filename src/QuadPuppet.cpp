@@ -61,7 +61,6 @@ namespace QuadPuppet
         for (size_t i = 0; i < info.joints.size(); i++)
         {
             Vector3 pinPos = to_Vector3(info.embedding[info.joints[i]]);
-            pinPos[0] = -pinPos[0]; //Pinocchio X coord is mirrored
             pinPos = pinPos * mesh.scale + mesh.toAdd; //Apply scaling
             pinEmbed.push_back(pinPos);
         }
@@ -93,7 +92,6 @@ namespace QuadPuppet
         AdaptMesh(mesh);
 
         Attachment* attachment = CreateAttachment(*embedding, *mesh, rigType, params);
-        embedding->flipXAxis();
 
         welded_weights = attachment->getBoneWeights();
         return welded_weights;
