@@ -78,7 +78,8 @@ Mesh::Mesh(const string &file)
 		}
 	}
 
-	fixDuplicateFaces();
+	// Disabled because it changes the topology.
+	//fixDuplicateFaces();
 
 	computeTopology();
 
